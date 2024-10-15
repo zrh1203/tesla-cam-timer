@@ -1,98 +1,473 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+
+<!-- saved from url=(0034)https://bigxixi.com/teslaCamTimer/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>特斯拉行车记录仪加水印</title>
-</head>
-<body>
-     
-    <h3>特斯拉行车记录仪加水印（测试）</h3>
-    <div>注意文件名不要改</div>
-    <hr color="#666666">
-    <input class="inputer" type="file" id="file" />
-    <br />
-    ------
-    <br/>
-    <button class="startRec" disabled="true">开始录制</button>
-    <button class="stopRec" disabled="true">结束并下载录像</button>
-    <br/>
-    <div class="info" style="opacity: 0;">录制信息</div>
-    <video class="video_stage" autoplay playsInline style="display: none;">
-        你的浏览器不能支持HTML5视频
-    </video>
+    <style>
+        div{
+            font-size: 10px;
+        } 
+    </style>
+<style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
 
-    <!-- <div style="width: 100vw;"> -->
-        <canvas class="cvs" style="width: 90vw;top:50vw;left:5vw;position:absolute;"></canvas>
-    <!-- </div> -->
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+
+.immersive-translate-search-recomend {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  font-size: 16px;
+}
+
+.immersive-translate-search-enhancement-en-title {
+  color: #4d5156;
+}
+
+
+
+.immersive-translate-search-settings {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.immersive-translate-search-recomend::before {
+  /* content: " "; */
+  /* width: 20px; */
+  /* height: 20px; */
+  /* top: 16px; */
+  /* position: absolute; */
+  /* background: center / contain url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAxlBMVEUAAADpTInqTIjpSofnSIfqS4nfS4XqS4nqTIjsTYnrTInqTIroS4jvQIDqTIn////+/v7rSYjpTIn8/v7uaZzrTIr9/f3wfansWJL88/b85e73qc39+/v3xNnylrvrVI/98fb62Obva5/8+fr76vH4y9zpSIj74e353Oj1ocTzm77xhK/veKbtYpjsXJTqU47oTInxjrXyh7L99fj40eH2ttH1udD3sc31ssz1rMnykLXucqPtbqD85e/1xdn2u9DzqcXrUY6FaJb8AAAADnRSTlMA34BgIM8Q37/fz7+/EGOHcVQAAAGhSURBVDjLhZPncuowEEZFTW7bXVU7xsYYTO/p7bb3f6lICIOYJOT4h7/VnFmvrBFjrF3/CR/SajBHswafctG0Qg3O8O0Xa8BZ6uw7eLjqr30SofCDVSkemMinfL1ecy20r5ygR5zz3ArcAqJExPTPKhDENEmS30Q9+yo4lEQkqVTiIEAHCT10xWERRdH0Bq0aCOPZNDV3s0xaYce1lHEoDHU8wEh3qRJypNcTAeKUIjgKMeGLDoRCLVLTVf+Ownj8Kk6H9HM6QXPgYjQSB0F00EJEu10ILQrs/QeP77BSSr0MzLOyuJJQbnUoOOIUI/A8EeJk9E4YUHUWiRyTVKGgQUB8/3e/NpdGlfI+FMQyWsCBWyz4A/ZyHXyiiz0Ne5aGZssoxRmcChw8/EFKQ5JwwkUo3FRT5yXS7q+Y/rHDZmFktzpGMvO+5QofA4FPpEmGw+EWRCFvnaof7Zhe8NuYSLR0xErKLThUSs8gnODh87ssy6438yzbLzxl012HS19vfCf3CNhnbWOL1eEsDda+gDPUvri8tSZzNFrwIZf1NmNvqC1I/t8j7nYAAAAASUVORK5CYII='); */
+}
+
+.immersive-translate-search-title {}
+
+.immersive-translate-search-title-wrapper {}
+
+.immersive-translate-search-time {
+  font-size: 12px;
+  margin: 4px 0 24px;
+  color: #70757a;
+}
+
+.immersive-translate-expand-items {
+  display: none;
+}
+
+.immersive-translate-search-more {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 270px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 50% auto !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  word-break: break-all;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover{
+  background-color: #ea4c89;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #EA4C89;
+  border: 1px solid #EA4C89
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #007bff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.50) !important;
+  display: flex !important;
+  flex-direction: column !important; 
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,.imt-image-status svg, .imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #FFF) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+</style></head>
+<body><body">
+     
+    <h3>特斯拉行车记录仪加水印（Beta）</h3>
+    <div>
+        使用步骤：<br>
+        可以在电脑也可以在手机使用本工具。<br>
+        如果是电脑，直接将U盘插入电脑，然后从步骤4开始看；<br>
+        如果是手机：<br>
+        1.根据手机类型（安卓、苹果）准备好OTG转接头。<br>
+        2.取下行车记录仪U盘，插入转接头连上手机。<br>
+        3.打开文件管理器确认U盘是否链接成功。<span style="color: rgb(255, 128, 0)">注意:视频文件名不要改!</span><br>
+        4.点击「选择文件」，进入特斯拉U盘选取视频片段。特斯拉记录的视频是每个片段1分钟。<br>
+        5.点击「开始录制」，等待录制（可以滑动进度条到对应时间点再开始）。<br>
+        6.点击「结束录制并下载视频」完成录制。<br>
+        7.点击浏览器的下载列表，可以看到刚才录制的视频。<br>
+        <span style="color: rgb(255, 128, 0);">iPhone（Safari）生成的是mp4格式，安卓（Chrome，edge）生成的是webm，如需转换为mp4，可以搜索一些在线工具或者app，例如</span>
+        <a href="https://converter.app/webm-to-mp4/">https://converter.app/webm-to-mp4/</a>
+    </div>
     
+    <hr color="#666666">
+    <input class="inputer" type="file">
+    <br>
+    <br>
+    <button class="startRec" disabled="true">🔴录制水印视频</button>
+    <button class="stopRec" disabled="true">🟥结束录制，并下载视频</button>
+    <br>
+    <br>
+    <div class="info" style="color:grey;"> ⏸ 未开始录制。</div>
+    <br>
+    <div class="viewer" style="display: none;">
+        <canvas class="cvs" style="width: 100%;"></canvas>
+        <br>
+        <input class="timeLine" type="range" min="1" max="100" step="0.01" value="0" style="width: 100%;">
+    </div>
+
+    <div>
+        <img width="15px" style="margin: -3px;" src="./特斯拉行车记录仪加水印_files/GitHub-Mark.png" alt="">
+        <span style="line-height: 10px;"> 项目地址:</span>
+        <br>
+        <a href="https://github.com/bigxixi/tesla-cam-timer">https://github.com/bigxixi/tesla-cam-timer</a>
+    </div>
 
     <script>
+
+        const fps = 25;//导出的视频帧率
+        const timeslice = 10;//捕获数据时间间隔
+        const bitRate = 5000000;//码率
+        // 详见 https://juejin.cn/post/7005113182247190541
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
         const inputer = document.querySelector(".inputer");
         const startRec = document.querySelector(".startRec");
         const stopRec = document.querySelector(".stopRec");
         const info = document.querySelector(".info");
-        const cvs = document.querySelector(".cvs");
+        const viewer = document.querySelector(".viewer");
+        const timeLine = viewer.querySelector(".timeLine");
+        const cvs = viewer.querySelector(".cvs");
         const ctx = cvs.getContext('2d');
-        const vid = document.querySelector(".video_stage");
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        let recStartTime = 0;
-        let vidName = "";
+        const vid = document.createElement("video");
+              vid.setAttribute("autoplay",true);
+              vid.setAttribute("playsInline",true);
 
-        let mimeType = {ext:"webm",opt:{mimeType: 'video/webm'}};
-        if (MediaRecorder.isTypeSupported('video/webm; codecs=vp9')) {
-            mimeType = {ext:"webm",opt:{mimeType: 'video/webm; codecs=vp9'}};
-        } else  if (MediaRecorder.isTypeSupported('video/webm')) {
-            mimeType = {ext:"webm",opt:{mimeType: 'video/webm'}};
-        } else if (MediaRecorder.isTypeSupported('video/mp4')) {
-            mimeType = {ext:"mp4",opt:{mimeType: 'video/mp4', videoBitsPerSecond : 10000000}};
-        } else {
-            // const mimeType = {mimeType: 'video/webm'};
-            console.error("no suitable mimetype found for this device");
-        }
-
-        const allChunks=[];
-        const stream = cvs.captureStream(25);
-        const recorder = new MediaRecorder(stream, mimeType.opt);
+        let draging = false;//拖拽状态控制
         
-              recorder.ondataavailable = e => {
-                    console.log("TCL: e", e)
-                    allChunks.push(
-                        e.data
-                    );
-                }
-
-         //end & download
-        function stopAndblobDownload() {
-            recorder.stop();
-            vid.pause();
-            stopRec.disabled = true;
-
-            const link = document.createElement('a');
-            link.style.display = 'none';
-            const fullBlob = new Blob(allChunks);
-            const downloadUrl = window.URL.createObjectURL(fullBlob);
-            link.href = downloadUrl;
-            link.download = `${vidName}_${Math.random()}.${mimeType.ext}`;
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
-        }
-        //start
-        function startRecording(){
-            if(vid.paused){
-                vid.play();
+        // safari(iOS)支持mp4导出，chrome(Android)支持webm，可能需要转换一下
+        let mimeType = {ext:"webm",opt:{mimeType: 'video/webm', videoBitsPerSecond : bitRate}};
+            if (MediaRecorder.isTypeSupported('video/webm; codecs=vp9')) {
+                mimeType = {ext:"webm",opt:{mimeType: 'video/webm; codecs=vp9', videoBitsPerSecond : bitRate}};
+            } else  if (MediaRecorder.isTypeSupported('video/webm')) {
+                mimeType = {ext:"webm",opt:{mimeType: 'video/webm', videoBitsPerSecond : bitRate}};
+            } else if (MediaRecorder.isTypeSupported('video/mp4')) {
+                mimeType = {ext:"mp4",opt:{mimeType: 'video/mp4', videoBitsPerSecond : bitRate}};
+            } else {
+                // console.error("no suitable mimetype found for this device");
+                alert("no suitable mimetype found for this device");
+                const mimeType = {mimeType: 'video/webm'};
             }
-            recorder.start(10);
-            stopRec.disabled = false;
-            info.style = "opacity:1"
-            recStartTime = vid.currentTime;
-            console.log("recStartTime",recStartTime)
-        }
-
-        startRec.addEventListener("click",startRecording);
-        stopRec.addEventListener("click",stopAndblobDownload);
-
-        Date.prototype.format = function(fmt) { 
+         
+        // 时间日期格式化
+        Date.prototype.format = function(fmt){ 
             var o = { 
             "M+" : this.getMonth()+1,                 //月份 
             "d+" : this.getDate(),                    //日 
@@ -113,47 +488,77 @@
             return fmt; 
         }
 
+        // 利用captureStream获取canvas内容生成视频，详见
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/captureStream
+        const allChunks = [];
+        const stream = cvs.captureStream(fps);
+        const recorder = new MediaRecorder(stream, mimeType.opt);
+                recorder.ondataavailable = e => {
+                    allChunks.push(
+                        e.data
+                    );
+                }
+        let vidName = "unNamed";
+        let startTime = 0;
+        let recStartTime = 0;
+        let recStartTimeNew = 0;
+
+        //开始录制带水印视频
+        const startRecording = ()=>{
+                // 若视频停在最后一帧，则重新开始播放
+                if(vid.currentTime>=vid.duration) vid.currentTime = 0;
+                if(vid.paused) vid.play();
         
+                info.style.color = "red";
 
-        const inputVid = ()=> {
-            const file = document.getElementById('file').files[0];
-            const url = URL.createObjectURL(file);
-            vidName = file.name.split(0,file.name.lastIndexOf("."));
-            const t1 = file.name.slice(0,19).split("_");
-            const t2 = t1[0].split("-");
-            const t3 = t1[1].split("-");
-
-            const oldTime = `${t2[0]}/${t2[1]}/${t2[2]} ${t3[0]}:${t3[1]}:${t3[2]}`;
-            console.log("oldTime",oldTime);
-
-            const startTime = (new Date(oldTime)).getTime();//毫秒
-            console.log("startTime",startTime);   
-
-            vid.src = url;
-            vid.play();
-            
-
-            vid.addEventListener("loadedmetadata",()=>{
-
-                cvs.width = vid.videoWidth;
-                cvs.height = vid.videoHeight;
-
+                recorder.start(timeslice);
+                stopRec.disabled = false;
+                startRec.disabled = true;
+                recStartTime = vid.currentTime;
+                recStartTimeNew = startTime+recStartTime*1000;
+                console.log("--录制开始--");
                 
+            }
+
+        //保存录制的视频
+        const stopAndblobDownload = ()=>{
+                recorder.stop();
+                vid.pause();
+                stopRec.disabled = true;
                 startRec.disabled = false;
 
-                if(isMobile){
-                    const touchToPlay = ()=>{
-                        vid.play();
-                        cvs.removeEventListener("touchstart",touchToPlay);
-                    }
+                info.innerHTML = "录制停止。"
+                info.style.color = "grey";
 
-                    cvs.addEventListener("touchstart",touchToPlay)
-                }
+                console.log("--录制流程结束，开始下载流程--");
 
-                ctx.font = `${cvs.width/30}px Arial`;
-                let startTimeTemp = startTime+recStartTime*1000;
-                console.log("startTimeTemp",startTimeTemp)
-                const render = ()=>{
+                const fullBlob = new Blob(allChunks);
+                const downloadUrl = window.URL.createObjectURL(fullBlob);
+
+                const link = document.createElement('a');
+                      link.style.display = 'none';
+                      link.href = downloadUrl;
+                      link.download = `${vidName}_${Math.random().toFixed(10)*10000000000}.${mimeType.ext}`;
+
+                document.body.appendChild(link);
+                link.click();
+
+                setTimeout(() => {
+                    link.remove();
+                    allChunks.length = 0;
+                    console.log("--下载流程结束--");
+                }, 100);
+                
+            }
+
+        startRec.addEventListener("click",startRecording);
+        stopRec.addEventListener("click",stopAndblobDownload);
+
+
+        // 播放原视频，绘制到canvas上，并添加时间码水印
+        const renderLoop = ()=>{
+                    requestAnimationFrame(renderLoop);
+
                     ctx.clearRect(0,0,cvs.width,cvs.height);
                     ctx.drawImage(vid, 0, 0,cvs.width,cvs.height);
                     const curTime = new Date(startTime+vid.currentTime*1000).format("yyyy-MM-dd hh:mm:ss");
@@ -167,33 +572,78 @@
 
                     const tY = cvs.height - cvs.width/45;
 
-                                    
                     ctx.fillStyle = 'rgba(0,0,0,0.2)';
                     ctx.fillRect(tX,tY - curTextBBox.fontBoundingBoxAscent,tW,tH);
 
                     ctx.fillStyle = 'rgba(255,255,255,0.5)';
                     ctx.fillText(curTime, tX, tY);
 
+                    if(!draging && vid.duration && vid.duration !=0) timeLine.value = 100*(vid.currentTime/vid.duration);
+                    if(recorder.state == "recording") info.innerHTML = `录制开始时间：${new Date(recStartTimeNew).format("yyyy-MM-dd hh:mm:ss")},已录制${(vid.currentTime - recStartTime).toFixed(2)}s`;
                     
-                    info.innerHTML = `录制开始时间：${new Date(startTimeTemp).format("yyyy-MM-dd hh:mm:ss")},已录制${(vid.currentTime - recStartTime).toFixed(2)}s`
-                    requestAnimationFrame(render);
-
-
                 }
 
-                render()
+        // 选择视频后开始播放
+        const inputVid = ()=> {
+            // todo:
+            // 文件名合法性检测
 
-        })
+            info.innerHTML = "未开始录制。"
+            info.style.color = "grey";
 
-            
+            const file = inputer.files[0];
+            vidName = file.name.substring(0,file.name.lastIndexOf("."));
 
+            const url = URL.createObjectURL(file);
+            const t1 = file.name.slice(0,19).split("_");
+            const t2 = t1[0].split("-");
+            const t3 = t1[1].split("-");
+
+            const oldTime = `${t2[0]}/${t2[1]}/${t2[2]} ${t3[0]}:${t3[1]}:${t3[2]}`;
+            startTime = (new Date(oldTime)).getTime();//毫秒
+
+            vid.src = url;
+            // vid.play();
+            if(vid.paused) vid.play();
+
+            vid.addEventListener("loadedmetadata",()=>{
+
+                cvs.width = vid.videoWidth;
+                cvs.height = vid.videoHeight;
+
+                viewer.style.display = "block";
+                
+                startRec.disabled = false;
+
+                if(isMobile){
+                    const touchToPlay = ()=>{
+                        // vid.play();
+                        if(vid.paused) vid.play();
+                        cvs.removeEventListener("touchstart",touchToPlay);
+                    }
+
+                    cvs.addEventListener("touchstart",touchToPlay)
+                }
+
+                ctx.font = `${cvs.width/30}px Arial`;
+                recStartTimeNew = startTime+recStartTime*1000;
+
+                requestAnimationFrame(renderLoop);
+
+            })
             
         }
 
-        
-        
-        inputer.addEventListener("change",inputVid)
+        inputer.addEventListener("change",inputVid);
+
+        // 进度条控制
+        timeLine.addEventListener(isMobile?"touchstart":"mousedown",e=>{draging=true;})
+        timeLine.addEventListener(isMobile?"touchend":"mouseup",e=>{draging=false;})
+        timeLine.addEventListener("change",()=>{
+            vid.currentTime = vid.duration*timeLine.value/timeLine.max;
+            if(vid.paused) vid.play();
+        });
  
     </script>
-</body>
-</html>
+
+</body"></body></html>
